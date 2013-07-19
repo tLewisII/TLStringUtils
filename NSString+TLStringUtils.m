@@ -97,4 +97,44 @@
     return [self substringWithRange:NSMakeRange(index, 1)];
 }
 
+-(BOOL)anyCharacter:(BOOL (^)(NSString *subString, NSUInteger index))block {
+    BOOL passedTest = NO;
+    for(NSUInteger i = 0; i < self.length; i++) {
+        NSString *subString = [self substringWithRange:NSMakeRange(i, 1)];
+        passedTest = block(subString, i);
+        if(passedTest) break;
+    }
+    return passedTest;
+}
+
+-(BOOL)anyWord:(BOOL (^)(NSString *subString, NSUInteger index))block {
+    BOOL passedTest = NO;
+    NSArray *words = [self componentsSeparatedByString:@" "];
+    for(NSUInteger i = 0; i < words.count; i++) {
+        passedTest = block(words[i], i);
+        if(passedTest) break;
+    }
+    return passedTest;
+}
+
+-(BOOL)allCharacters:(BOOL (^)(NSString *subString, NSUInteger index))block {
+    BOOL passedTest = NO;
+    for(NSUInteger i = 0; i < self.length; i++) {
+        NSString *subString = [self substringWithRange:NSMakeRange(i, 1)];
+        passedTest = block(subString, i);
+        if(!passedTest) break;
+    }
+    return passedTest;
+}
+
+-(BOOL)allWords:(BOOL (^)(NSString *subString, NSUInteger index))block {
+    BOOL passedTest = NO;
+    NSArray *words = [self componentsSeparatedByString:@" "];
+    for(NSUInteger i = 0; i < words.count; i++) {
+        passedTest = block(words[i], i);
+        if(!passedTest) break;
+    }
+    return passedTest;
+}
+
 @end

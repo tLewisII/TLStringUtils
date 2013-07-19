@@ -49,4 +49,32 @@
  */
 - (NSString *)map:(NSString *(^)(NSString *subString, NSUInteger index, BOOL *stop))block;
 
+/*!
+ *Returns YES if any character in the string passes the test in `block`, returns NO otherwise.
+ @param block, a block that contains a string and an index
+ @returns A BOOL value indicating if the test was passed
+ */
+-(BOOL)anyCharacter:(BOOL (^)(NSString *subString, NSUInteger index))block;
+
+/*!
+ *Returns YES if any word in the string passes the test in `block`, returns NO otherwise. A word here is defined as being seperated by a space, such as: @" ";.
+ @param block, a block that contains a string and an index
+ @returns A BOOL value indicating if the test was passed
+ */
+-(BOOL)anyWord:(BOOL (^)(NSString *subString, NSUInteger index))block;
+
+/*!
+ *Returns YES if all character in the string pass the test in `block`, returns NO otherwise.
+ @param block, a block that contains a string and an index
+ @returns A BOOL value indicating if the test was passed
+ */
+-(BOOL)allCharacters:(BOOL (^)(NSString *subString, NSUInteger index))block;
+
+/*!
+ *Returns YES if all words in the string pass the test in `block`, returns NO otherwise. A word here is defined as being seperated by a space, such as: @" ";.
+ @param block, a block that contains a string and an index
+ @returns A BOOL value indicating if the test was passed
+ */
+-(BOOL)allWords:(BOOL (^)(NSString *subString, NSUInteger index))block;
+
 @end
