@@ -18,7 +18,7 @@
 }
 
 - (BOOL)isCamelCaseString {
-    BOOL success = YES;     
+    BOOL success = YES; ///adad
     NSArray *stringArray = [self componentsSeparatedByString:@" "];
     for(NSString *string in stringArray) {
         if(![string substringWithRange:NSMakeRange(0, 1)].isUppercaseString) {
@@ -52,6 +52,14 @@
 
 - (NSMutableString *)mutableString {
     return [NSMutableString stringWithString:self];
+}
+
+- (NSArray *)toArray {
+    return [self toArrayWithDelimiter:@" "];
+}
+
+- (NSArray *)toArrayWithDelimiter:(NSString *)delimiter {
+    return [self componentsSeparatedByString:delimiter];
 }
 
 - (NSString *)filter:(BOOL (^)(NSString *subString, NSUInteger index))block {

@@ -27,6 +27,12 @@
 ///Returns a mutable version of the receiver.
 - (NSMutableString *)mutableString;
 
+///Returns an array of strings seperated by spaces.
+- (NSArray *)toArray;
+
+///Retuns an array of strings seperated by delimiter.
+- (NSArray *)toArrayWithDelimiter:(NSString *)delimiter;
+
 ///Provides subsript access to substrings by index.
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
