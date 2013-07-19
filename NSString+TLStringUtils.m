@@ -1,5 +1,5 @@
 //
-//  NSString+Utilities.m
+//  NSString+TLStringUtils.m
 //  NSString addition
 //
 //  Created by Terry Lewis II on 7/18/13.
@@ -54,11 +54,20 @@
     return [NSMutableString stringWithString:self];
 }
 
-- (NSArray *)toArray {
-    return [self toArrayWithDelimiter:@" "];
+- (NSArray *)toWordArray {
+    return [self ArrayWithDelimiter:@" "];
 }
 
-- (NSArray *)toArrayWithDelimiter:(NSString *)delimiter {
+-(NSArray *)toCharacterArray {
+    NSMutableArray *characterArray = [NSMutableArray arrayWithCapacity:self.length];
+    for(NSUInteger i = 0; i < self.length; i++) {
+        NSString *subString = [self substringWithRange:NSMakeRange(i, 1)];
+        characterArray[i] = subString;
+    }
+    return [NSArray arrayWithArray:characterArray];
+}
+
+- (NSArray *)ArrayWithDelimiter:(NSString *)delimiter {
     return [self componentsSeparatedByString:delimiter];
 }
 

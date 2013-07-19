@@ -1,5 +1,5 @@
 //
-//  NSString+Utilities.h
+//  NSString+TLStringUtils.h
 //  NSString addition
 //
 //  Created by Terry Lewis II on 7/18/13.
@@ -28,10 +28,13 @@
 - (NSMutableString *)mutableString;
 
 ///Returns an array of strings seperated by spaces.
-- (NSArray *)toArray;
+- (NSArray *)toWordArray;
+
+///Returns an array of all the characters in the string.
+-(NSArray *)toCharacterArray;
 
 ///Retuns an array of strings seperated by delimiter.
-- (NSArray *)toArrayWithDelimiter:(NSString *)delimiter;
+- (NSArray *)ArrayWithDelimiter:(NSString *)delimiter;
 
 ///Provides subsript access to substrings by index.
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
