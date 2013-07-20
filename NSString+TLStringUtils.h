@@ -41,11 +41,15 @@
 
 /*!
  *Iterates over the receiver and returns only the values that pass the test of `YES` within the block.
+ @param block, a block that contains a string and an index
+ @returns A new NSString that only contains characters with passes the test in `block`
  */
 - (NSString *)filter:(BOOL (^)(NSString *subString, NSUInteger index))block;
 
 /*!
  *Returns a new string with the changes applied in `block`. *stop is initially set to NO, if it is set to YES, the sequence will stop.
+ @param block, a block that contains a string, an index and a BOOL that can indicate that the fuction should stop
+ @returns A new NSString that results from the transform applied in `block`
  */
 - (NSString *)map:(NSString *(^)(NSString *subString, NSUInteger index, BOOL *stop))block;
 
