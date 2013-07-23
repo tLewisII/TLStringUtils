@@ -17,7 +17,7 @@
     return [self isEqualToString:self.lowercaseString];
 }
 
-- (BOOL)isCamelCaseString {
+- (BOOL)isCapitalizedString {
     BOOL success = YES; ///adad
     NSArray *stringArray = [self componentsSeparatedByString:@" "];
     for(NSString *string in stringArray) {
@@ -33,17 +33,6 @@
     BOOL firstCheck = ([self rangeOfString:@"@"].location != NSNotFound);
     BOOL secondCheck = ([self rangeOfString:@"."].location != NSNotFound);
     return (firstCheck && secondCheck);
-}
-
-- (NSString *)camelCaseString {
-    NSMutableString *mutableString = [NSMutableString new];
-    NSArray *stringArray = [self componentsSeparatedByString:@" "];
-    for(NSString *string in stringArray) {
-        [mutableString appendString:[string substringToIndex:1].uppercaseString];
-        [mutableString appendString:[string substringFromIndex:1]];
-        [mutableString appendString:@" "];
-    }
-    return [NSString stringWithString:mutableString];
 }
 
 - (NSString *)concat:(NSString *)string {

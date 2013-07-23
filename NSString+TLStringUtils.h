@@ -14,12 +14,9 @@
 ///Returns a BOOL indicating if the entire string is lowercase.
 @property(nonatomic, readonly) BOOL isLowerCaseString;
 ///Returns a BOOL indicating if the string entire string is camelcase, such as This: "This Is A Camel Case String".
-@property(nonatomic, readonly) BOOL isCamelCaseString;
+@property(nonatomic, readonly) BOOL isCapitalizedString;
 ///Checks if the string is a valid email address.
 @property(nonatomic, readonly) BOOL isValidEmail;
-
-///Makes the string a Camel Case String, such as this: "Camel Case String".
-- (NSString *)camelCaseString;
 
 ///Shorter method for concatenating a string.
 - (NSString *)concat:(NSString *)string;
